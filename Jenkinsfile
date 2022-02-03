@@ -1,28 +1,23 @@
-pipeline {
-  agent any
-  
-  stages {
-    
-    stage("build") {
-    
-      steps {
-        echo 'building the application'
-      }
+def ipvaFileFolder = "https://github.com/lizianeb/lb.git"
+
+pipeline{
+    stages {
+        stage('Criação usuário cognito'){
+            steps {
+                script {
+                    dir (ipvaFileFolder){
+                        if(fileExists(ipva.csv)) {
+                            readFile("arquivo.csv").split('\n').each { line, count ->
+                            def fields = line.split
+                            for(String item: fields) {
+                                println item
+                                print 'linha' + count
+                            }
+                        } 
+                        }
+                    }      
+                }
+            }
+        }
     }
-    
-    stage("test") {
-      
-      steps {
-        echo 'testing the application'
-      }
-    }
-    
-    stage("deploy") {
-    
-      steps {
-        echo 'deploying the application'
-      }
-    }
-    
-  }
 }
