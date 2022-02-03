@@ -1,6 +1,8 @@
 def ipvaFileFolder = "https://github.com/lizianeb/lb.git"
 
 pipeline{
+    agent any
+    
     stages {
         stage('Criação usuário cognito'){
             steps {
