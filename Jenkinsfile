@@ -11,7 +11,7 @@ pipeline{
                     def arquivo = "${conteudoArquivoCsv}"
                     echo ("Csv:" + arquivo)
                     
-                    readFile(arquivoCsvPath).split('\n').each { line, count ->
+                    readFile(arquivo).split('\n').each { line, count ->
                     	echo ("Tessste:" + line)
                   
                     }
