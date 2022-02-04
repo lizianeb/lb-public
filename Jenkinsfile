@@ -12,7 +12,8 @@ pipeline{
                     echo ("Csv:" + arquivo)
                     
                     readFile(arquivo).split('\n').each { line, count ->
-                    	echo ("Tessste:" + line)
+                    	def fields = line.split(';')
+                    	echo ("Tessste:" + fields)
                   
                     }
                 }
