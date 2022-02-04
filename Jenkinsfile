@@ -11,7 +11,7 @@ pipeline{
                     def arquivo = "${conteudoArquivoCsv}"
                     echo ("Csv:" + arquivo)
                     
-                    arquivo.eachLine { line ->
+                    arquivo.split('\n').eachLine { line ->
                     	def fields = line.split(";")                    		
                     	
                     	for(String item: fields){
