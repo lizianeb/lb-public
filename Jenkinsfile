@@ -15,7 +15,7 @@ pipeline{
                     	def fields = line.split(";")    
                     	
                     	echo ("linha: " + line)
-                    	echo ("fieeeelds: " + fields)                		
+                    	echo ("fieeeelds: " + fields + ", " + "Número: " + count)                		
                     	
                     	for(String item: fields){
                     		echo ("tessste: " + item)
