@@ -23,9 +23,11 @@ pipeline{
                     	}
                     }
                 }
+                
                 echo env.STAGE_NAME
                 echo '=========== Carregar CSV ============'
             }
+          }
         }
     }
 }
