@@ -1,26 +1,18 @@
-def ipvaFileFolder = "https://github.com/lizianeb/lb.git"
-
 pipeline{
     agent any
 
     stages {
-        stage('Criação usuário cognito'){
+        stage('Teste arquivo'){
             steps {
                 script {
-                    dir (ipvaFileFolder){
-                        if(fileExists("teste_file.csv")) {
-                            echo 'Arquivo teste_file.csv não encontrado.'
-
-                            readFile("teste_file.csv").split('\n').each { line, count ->
-                            def fields = line.split
-                            for(String item: fields) {
-                                echo 'item' + item
-                                echo 'linha' + count
-                            }
-                        } 
-                        }
-                    }      
+                    def arquivoCsvPath = input message: 'Carregar arquivo csv', parameters: [file(name: 'teste_file.csv', description: 'Apenas arquivos CSV')]
+                    def content = readFile "${arquivoCsvPath}"
+                    
+                    echo ("Arquivo csv caminho: ${arquivoCsvPath}")
+                    echo ("Csv: ${content}")
                 }
+                echo env.STAGE_NAME
+                echo '=========== Carregar CSV ============'
             }
         }
     }
