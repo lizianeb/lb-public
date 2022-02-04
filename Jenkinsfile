@@ -13,7 +13,10 @@ pipeline{
                     arquivo.split('\n').each { line, count ->
                     	def fields = line.split(";")    
                     	
-                    	echo ("fieeeelds: " + fields[0])                		
+                    	echo ("fieeeelds: " + fields[0])   
+                        
+                        sh "Hello" +
+                        "world"
                     }
                 }
                 
