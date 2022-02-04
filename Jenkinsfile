@@ -6,9 +6,8 @@ pipeline{
             steps {
                 script {
                     def arquivoCsvPath = input message: 'Carregar arquivo CSV', parameters: [file(name: 'teste_file.csv', description: 'Apenas arquivos CSV')]
-                    def conteudoArquivoCsv = readFile "${arquivoCsvPath}"
+                    def arquivo = readFile "${arquivoCsvPath}"
                     
-                    def arquivo = "${conteudoArquivoCsv}"
                     echo ("Csv:" + arquivo)
                     
                     arquivo.split('\n').each { line, count ->
