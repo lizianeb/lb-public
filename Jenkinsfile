@@ -13,12 +13,7 @@ pipeline{
                     arquivo.split('\n').each { line, count ->
                     	def fields = line.split(";")    
                     	
-                    	echo ("linha: " + line)
-                    	echo ("fieeeelds: " + fields + ", " + "Número: " + count)                		
-                    	
-                    	for(String item: fields){
-                    		echo ("tessste: " + item)
-                    	}
+                    	echo ("fieeeelds: " + fields[0])                		
                     }
                 }
                 
