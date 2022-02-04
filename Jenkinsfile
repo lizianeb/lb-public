@@ -10,6 +10,12 @@ pipeline{
                     
                     def arquivo = "${conteudoArquivoCsv}"
                     echo ("Csv:" + arquivo)
+                    
+                    readCSV(file: arquivoCsvPath).each {
+                    	line.each { fields ->
+                    		echo ("Tessste:" + fields)
+                    	}
+                    }
                 }
                 
                 echo env.STAGE_NAME
