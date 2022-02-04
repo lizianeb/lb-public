@@ -11,10 +11,9 @@ pipeline{
                     def arquivo = "${conteudoArquivoCsv}"
                     echo ("Csv:" + arquivo)
                     
-                    readFile(arquivo).eachLine { line ->
-                    	def fields = line.split(';').each { value ->
-                    		echo ("Tessste: ${value}")
-                    	}
+                    arquivo.eachLine { line ->
+                    	def fields = line.split(";")                    		
+                    	echo ("Tessste: " + fields)
                     }
                 }
                 
