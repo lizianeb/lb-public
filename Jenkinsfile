@@ -13,7 +13,10 @@ pipeline{
                     
                     arquivo.eachLine { line ->
                     	def fields = line.split(";")                    		
-                    	echo ("Tessste: " + fields[0] + fields[1])
+                    	
+                    	for(String item: fields){
+                    		echo ("tessste: " + item)
+                    	}
                     }
                 }
                 
